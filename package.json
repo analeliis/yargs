@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.10",
     "@babel/preset-typescript": "^7.26.0",
+    "@eslint/js": "^9.39.1",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^9.0.0",
     "@types/node": "^20.0.0",
@@ -58,6 +59,7 @@
     "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",
     "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-sonarjs": "^0.24.0",
     "gts": "^5.2.0",
     "hashish": "0.0.4",
     "mocha": "^10.8.2",
@@ -80,7 +82,8 @@
     "check:js": "eslint . --ext mjs --ext js",
     "clean": "gts clean",
     "watch": "rimraf build && npm:watch:tsc",
-    "watch:tsc": "tsc --watch"
+    "watch:tsc": "tsc --watch",
+    "lint": "eslint lib --ext .mjs"
   },
   "repository": {
     "type": "git",

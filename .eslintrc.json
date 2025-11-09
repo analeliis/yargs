@@ -1,24 +1,32 @@
-{
-  "extends": "./node_modules/gts/",
-  "overrides": [
-    {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unsafe-function-type": "off",
-        "@typescript-eslint/no-empty-object-type": "off"
-      }
-    }
-  ],
-  "parser": "@babel/eslint-parser",
+﻿{
+  "root": true,
+  "env": {
+    "es2021": true,
+    "node": true,
+    "browser": true
+  },
   "parserOptions": {
-    "requireConfigFile": false,
-    "babelOptions": {
-      "babelrc": false,
-      "configFile": false,
-      "presets": ["@babel/preset-typescript"]
-    }
-  }
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["sonarjs"],
+  "extends": ["eslint:recommended", "plugin:sonarjs/recommended"],
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-implicit-globals": "warn",
+    "complexity": ["warn", 8],
+    "max-depth": ["warn", 3],
+    "sonarjs/cognitive-complexity": ["warn", 10]
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    "coverage/",
+    "docs/",
+    "**/*.ts",
+    "**/*.d.ts",
+    "test/",         
+    "test/deno/"
+  ]
 }
